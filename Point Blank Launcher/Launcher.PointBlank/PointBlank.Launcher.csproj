@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1FB302F1-F27F-496E-856C-2F2E093DDB77}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Launcher.PointBlank</RootNamespace>
+    <AssemblyName>PBLauncher</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Init.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Init.Designer.cs">
+      <DependentUpon>Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClientConfig.cs" />
+    <Compile Include="Models\FileCheckProgress.cs" />
+    <Compile Include="Models\FileCheckResult.cs" />
+    <Compile Include="Models\Infos.cs" />
+    <Compile Include="Models\LoginResult.cs" />
+    <Compile Include="Models\LauncherConfig.cs" />
+    <Compile Include="Models\LauncherConnectionResult.cs" />
+    <Compile Include="Models\UpdateDownloadProgress.cs" />
+    <Compile Include="Models\UpdateFile.cs" />
+    <Compile Include="Models\UpdateManifest.cs" />
+    <Compile Include="Packets\LAUNCHER_OPCODE_REQ.cs" />
+    <Compile Include="Packets\LAUNCHER_PACKET_REQ.cs" />
+    <Compile Include="Packets\LAUNCHER_PACKET_READER_REQ.cs" />
+    <Compile Include="Packets\LAUNCHER_PACKET_WRITER_REQ.cs" />
+    <Compile Include="Packets\LAUNCHER_TCP_CLIENT_REQ.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ClientConfigService.cs" />
+    <Compile Include="Services\ConfigCryptoService.cs" />
+    <Compile Include="Services\LauncherConfigService.cs" />
+    <Compile Include="Services\LauncherConnection.cs" />
+    <Compile Include="Services\LoginService.cs" />
+    <Compile Include="Services\FileCheck.cs" />
+    <Compile Include="Services\LauncherUpdateCheckService.cs" />
+    <Compile Include="Services\PatchDownloadService.cs" />
+    <Compile Include="Services\UpdateManifestService.cs" />
+    <Compile Include="Utils\Logger.cs" />
+    <EmbeddedResource Include="Init.resx">
+      <DependentUpon>Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon.ico" />
+    <None Include="Resources\UpdateLeave.png" />
+    <None Include="Resources\UpdateEnter.png" />
+    <None Include="Resources\UpdateDown.png" />
+    <None Include="Resources\UpdateDisable.png" />
+    <None Include="Resources\StartLeave.png" />
+    <None Include="Resources\StartEnter.png" />
+    <None Include="Resources\StartDown.png" />
+    <None Include="Resources\StartDisable.png" />
+    <None Include="Resources\CheckLeave.png" />
+    <None Include="Resources\CheckEnter.png" />
+    <None Include="Resources\CheckDown.png" />
+    <None Include="Resources\CheckDisable.png" />
+    <None Include="Launcher Image\Bitmap99.bmp" />
+    <None Include="Launcher Image\Bitmap30.bmp" />
+    <None Include="Launcher Image\Bitmap1271.bmp" />
+    <None Include="Launcher Image\Bitmap1270.bmp" />
+    <None Include="Launcher Image\Bitmap12.bmp" />
+    <None Include="Launcher Image\Bitmap13.bmp" />
+    <Content Include="Launcher Image\Bitmap130.bmp" />
+    <Content Include="Launcher Image\Bitmap132.bmp" />
+    <Content Include="Launcher Image\Bitmap133.bmp" />
+    <Content Include="Launcher Image\Bitmap136.bmp" />
+    <Content Include="Launcher Image\Bitmap137.bmp" />
+    <None Include="Launcher Image\Bitmap15.bmp" />
+    <None Include="Launcher Image\Bitmap14.bmp" />
+    <None Include="Launcher Image\Bitmap16.bmp" />
+    <Content Include="Launcher Image\Bitmap163.png" />
+    <Content Include="Launcher Image\Bitmap164.png" />
+    <Content Include="Launcher Image\Bitmap165.png" />
+    <None Include="Launcher Image\Bitmap17.bmp" />
+    <Content Include="Launcher Image\Bitmap171.png" />
+    <Content Include="Launcher Image\Bitmap172.png" />
+    <Content Include="Launcher Image\Bitmap173.png" />
+    <Content Include="Launcher Image\Bitmap175.png" />
+    <Content Include="Launcher Image\Bitmap176.png" />
+    <Content Include="Launcher Image\Bitmap177.png" />
+    <None Include="Launcher Image\Bitmap21.bmp" />
+    <None Include="Launcher Image\Bitmap18.bmp" />
+    <None Include="Launcher Image\Bitmap20.bmp" />
+    <None Include="Launcher Image\Bitmap19.bmp" />
+    <Content Include="Launcher Image\Bitmap225.bmp" />
+    <Content Include="Launcher Image\Bitmap226.bmp" />
+    <Content Include="Launcher Image\Bitmap227.bmp" />
+    <Content Include="Launcher Image\Bitmap228.bmp" />
+    <None Include="Launcher Image\Bitmap23.bmp" />
+    <Content Include="Launcher Image\Bitmap230.bmp" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
