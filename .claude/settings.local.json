@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Recurse \"D:\\\\Emulador Point Blank 3.80\\\\Point Blank Launcher\\\\Point Blank Services\\\\Launcher.Services\" -Filter \"*.cs\")",
+      "Bash(Select-Object FullName)",
+      "PowerShell(cmd /c \"dir /s /b \"\"D:\\\\Emulador Point Blank 3.80\\\\Point Blank Launcher\\\\Point Blank Services\\\\Launcher.Services\"\"\")",
+      "PowerShell(Get-ChildItem \"D:\\\\Emulador Point Blank 3.80\\\\Point Blank Launcher\" -Depth 2 | Where-Object { $_.Extension -in '.sln','.csproj','.vbproj' -or $_.PSIsContainer } | Select-Object FullName, Name, Extension | Format-Table -AutoSize)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(Test-Path \"D:\\\\Emulador Point Blank 3.80\\\\Point Blank Launcher\\\\README.md\")"
+    ]
+  }
+}
