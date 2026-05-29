@@ -26,7 +26,6 @@ Sistema de launcher para o emulador **Point Blank 3.80**, composto por quatro pr
 |---|---|---|---|
 | `Launcher.PointBlank` | `PBLauncher.exe` | C# / WinForms / .NET 4.8 | Interface visual do launcher |
 | `Launcher.Services` | `PBService.exe` | C# / Console / .NET 4.8 | Serviço TCP de autenticação e patch |
-| `Launcher.Manager` | `LauncherManager.exe` | C# / WPF / .NET 4.8 | Ferramenta de criação de configs |
 | `LauncherUpdateCreator` | `UpdateCreator.exe` | C++ / Win32 | Ferramenta de geração de pacotes .zip e patchlist.json |
 
 ---
@@ -190,9 +189,6 @@ Point Blank Launcher\
 │       ├── Packets\
 │       └── Services\
 │
-├── Launcher Config Creator\
-│   └── LauncherManager\            ← LauncherManager.exe (WPF)
-│
 └── Launcher Update Creator\
     └── UpdateCreator\              ← UpdateCreator.exe (C++)
 ```
@@ -208,8 +204,6 @@ Point Blank Launcher\
 | `Microsoft.Bcl.AsyncInterfaces` | 1.1.0 | Services |
 | `System.Text.Json` | 4.6.0 | Services |
 | `System.Memory` | 4.5.3 | Services |
-| `Costura.Fody` | 6.1.0 | Manager (embed DLLs) |
-| `WindowsAPICodePack` | 1.1.1 | Manager |
 
 ---
 
