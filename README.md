@@ -158,13 +158,6 @@ O `UpdateCreator.exe` é uma ferramenta C++ de console para preparar atualizaç�
     }
   ]
 }
-```
-
----
-
-## Gerenciador de Configurações (LauncherManager)
-
-O `LauncherManager.exe` é uma ferramenta WPF para criar e editar os arquivos de configuração do launcher (`config.xml`, `Launcher.xml`) de forma visual, sem editar XML manualmente.
 
 ---
 
